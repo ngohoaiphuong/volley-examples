@@ -1,0 +1,18 @@
+language: android
+jdk: oraclejdk7
+env:
+  matrix:
+    # android-16 is always included
+    #- ANDROID_SDKS=android-18,sysimg-18  ANDROID_TARGET=android-18  ANDROID_ABI=armeabi-v7a
+
+android:
+  components:
+    - build-tools-19.1.0
+    - android-19
+
+before_install:
+  # Install base Android SDK
+
+script:
+  - ./gradlew check -PdisablePreDex
+
